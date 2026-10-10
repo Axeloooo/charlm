@@ -50,6 +50,13 @@ def build_wavenet(
     group: int = 2,
 ) -> Sequential:
     """Lecture 5: fuse the context hierarchically, `group` characters at a time."""
+    if group < 2 or block_size < group:
+        raise ValueError("group must be at least 2 and no larger than block_size")
+    size = block_size
+    while size > 1:
+        if size % group:
+            raise ValueError(f"block_size {block_size} must be a power of group {group}")
+        size //= group
     layers: list[Module] = [Embedding(vocab_size, n_embd, generator)]
     fan_in, remaining = n_embd, block_size
     while remaining > 1:

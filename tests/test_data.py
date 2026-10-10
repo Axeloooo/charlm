@@ -1,4 +1,4 @@
-from charlm.data import build_dataset, build_vocab, load_words, split_words
+from charlm.data import DEFAULT_NAMES, build_dataset, build_vocab, load_words, split_words
 
 
 def test_vocab_puts_dot_first() -> None:
@@ -23,6 +23,10 @@ def test_split_is_80_10_10_and_deterministic() -> None:
     assert (len(a), len(b), len(c)) == (80, 10, 10)
     assert split_words(words) == (a, b, c)
     assert sorted(a + b + c) == sorted(words)
+
+
+def test_default_names_file_ships_inside_the_package() -> None:
+    assert DEFAULT_NAMES.parent.name == "charlm" and DEFAULT_NAMES.is_file()
 
 
 def test_names_file_loads() -> None:

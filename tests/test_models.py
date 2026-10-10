@@ -1,3 +1,4 @@
+import pytest
 import torch
 
 from charlm.data import build_dataset, build_vocab
@@ -53,3 +54,11 @@ def test_training_reduces_loss_and_samples(words: list[str]) -> None:
     assert evaluate(model, x, y) < before - 0.5
     names = sample(model, itos, 8, g, count=3)
     assert len(names) == 3 and all(isinstance(n, str) for n in names)
+
+
+def test_wavenet_rejects_a_block_size_that_is_not_a_power_of_group(gen: torch.Generator) -> None:
+    with pytest.raises(ValueError, match="power of group"):
+        build_wavenet(27, 6, gen)
+    with pytest.raises(ValueError, match="at least 2"):
+        build_wavenet(27, 8, gen, group=1)
+    assert build_wavenet(27, 9, gen, group=3)(torch.zeros(2, 9, dtype=torch.long)).shape == (2, 27)
