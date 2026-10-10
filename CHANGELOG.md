@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/Axeloooo/charlm/compare/v1.1.0...v1.1.1) (2026-10-10)
+
+
+### Bug Fixes
+
+* ship the names dataset in the package and extend the CLI ([#9](https://github.com/Axeloooo/charlm/issues/9)) ([9f3cc27](https://github.com/Axeloooo/charlm/commit/9f3cc2722ae5e2cafa7062ef60ad88209c9bc469))
+
 # [1.1.0](https://github.com/Axeloooo/charlm/compare/v1.0.0...v1.1.0) (2026-10-10)
 
 
