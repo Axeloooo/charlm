@@ -10,7 +10,9 @@ Neural Networks: Zero to Hero series:
 4. [Part 4: Becoming a backprop ninja](https://youtu.be/q8SA3rM6ckI)
 5. [Part 5: Building a WaveNet](https://youtu.be/t3YJ5hKiMQ0)
 
-The dataset is `data/names.txt`, the 32,033 names from the makemore repository.
+The dataset is `src/charlm/names.txt`, the 32,033 names from the makemore repository. It ships with
+the package, so `python -m charlm` works from a regular `pip install` as well as an editable one;
+pass `--data path/to/words.txt` to train on your own list of words.
 
 ## Install
 
@@ -33,12 +35,13 @@ pip install -e ".[dev]"
 ## Run
 
 ```
+python -m charlm --model bigram       # Part 1, by counting
 python -m charlm --model mlp          # Part 2
 python -m charlm --model mlp-bn       # Part 3
 python -m charlm --model wavenet --steps 20000
 ```
 
-It prints train and dev loss and ten generated names. The CLI defaults are small so it runs on a
+It prints train, dev and test loss and ten generated names. The CLI defaults are small so it runs on a
 CPU in seconds; the lectures train for 100k-200k steps for the best dev loss, which is a job for a
 GPU or a patient CPU.
 
