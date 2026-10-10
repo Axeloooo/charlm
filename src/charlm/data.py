@@ -7,7 +7,8 @@ from pathlib import Path
 
 import torch
 
-DEFAULT_NAMES = Path(__file__).resolve().parents[2] / "data" / "names.txt"
+# Shipped inside the package, so it is found in editable and regular installs alike.
+DEFAULT_NAMES = Path(__file__).resolve().parent / "names.txt"
 END = "."
 
 
