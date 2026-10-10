@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/Axeloooo/charlm/compare/v1.0.0...v1.1.0) (2026-10-10)
+
+
+### Features
+
+* add makemore models from the bigram to the WaveNet ([#2](https://github.com/Axeloooo/charlm/issues/2)) ([b9c3b9b](https://github.com/Axeloooo/charlm/commit/b9c3b9b04bae09f8244c2422d35ae5132b2dedaa))
+
 # 1.0.0 (2026-10-10)
 
 
